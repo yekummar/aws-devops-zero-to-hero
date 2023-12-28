@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCK_REG_UNAME: /myapp/dockercrid/uname
+    DOCK_REG_PASS: /myapp/dockercrid/passwd
+    DOCK_REG_URL: /myapp/dockercrid/url
+    dock_reg_uname: /myapp/dockercrid/uname
+    dock_reg_pass: /myapp/dockercrid/passwd
+    dock_reg_url: /myapp/dockercrid/url
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r day-14/simple-python-app/requirements.txt
+  build:
+    commands:
+      - echo "Running tests..."
+      - cd day-14/simple-python-app
+      - echo "Building Docker image..."
+      - docker logout
+      - echo "$DOCK_REG_PASS" | docker login -u "$DOCK_REG_UNAME" --password-stdin "https://index.docker.io"
+      - docker build -t "yekummar/yfirstawscbd:latestdoc" .
+      - docker login -u "yekummar" -p "Yellu@321" docker.io
+      - docker push "docker.io/yekummar/yfirstawscbd:latestdoc"
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
