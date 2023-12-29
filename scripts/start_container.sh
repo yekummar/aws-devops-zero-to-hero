@@ -2,7 +2,7 @@
 set -e
 
 # Pull the Docker image from Docker Hub
-docker pull yekummar/yfirstawscbd
+docker pull yekummar/yfirstawscbd:latestdoc
 
 # Run the Docker image as a container
-docker run -d -p 5000:5000 yekummar/yfirstawscbd
+docker run -d -p 5000:5000 yekummar/yfirstawscbd:latestdoc
