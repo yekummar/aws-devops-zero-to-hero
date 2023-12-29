@@ -24,7 +24,7 @@ phases:
       - docker logout
       - echo "$DOCK_REG_PASS" | docker login -u "$DOCK_REG_UNAME" --password-stdin "$DOCK_REG_URL"
       - docker build -t "$DOCK_REG_UNAME/yfirstawscbd:latestdoc" .
-      - docker login -u "$DOCK_REG_UNAME" -p "$DOCK_REG_PASS" docker.io
+      - docker login -u "$DOCK_REG_UNAME" -p "$DOCK_REG_PASS" "$DOCK_REG_URL"
       - docker push "$DOCK_REG_URL/$DOCK_REG_UNAME/yfirstawscbd:latestdoc"
   post_build:
     commands:
