@@ -2,12 +2,9 @@ version: 0.2
 
 env:
   parameter-store:
-    DOCK_REG_UNAME: /myapp/dockercrid/uname
-    DOCK_REG_PASS: /myapp/dockercrid/passwd
-    DOCK_REG_URL: /myapp/dockercrid/url
-    dock_reg_uname: /myapp/dockercrid/uname
-    dock_reg_pass: /myapp/dockercrid/passwd
-    dock_reg_url: /myapp/dockercrid/url
+      DOCK_REG_UNAME: /myapp/dockercrid/uname
+      DOCK_REG_PASS: /myapp/dockercrid/passwd
+      DOCK_REG_URL: /myapp/dockercrid/url
 phases:
   install:
     runtime-versions:
@@ -19,13 +16,17 @@ phases:
   build:
     commands:
       - echo "Running tests..."
-      - cd day-14/simple-python-app
+      - cd day-14/simple-python-app/
       - echo "Building Docker image..."
-      - docker logout
       - echo "$DOCK_REG_PASS" | docker login -u "$DOCK_REG_UNAME" --password-stdin "$DOCK_REG_URL"
-      - docker build -t "$DOCK_REG_UNAME/yfirstawscbd:latestdoc" .
+      - docker build -t "$DOCK_REG_URL/$DOCK_REG_UNAME/simple-python-flask-app:latest" .
       - docker login -u "$DOCK_REG_UNAME" -p "$DOCK_REG_PASS" "$DOCK_REG_URL"
-      - docker push "$DOCK_REG_URL/$DOCK_REG_UNAME/yfirstawscbd:latestdoc"
+      - docker push "$DOCK_REG_URL/$DOCK_REG_UNAME/simple-python-flask-app:latest"
   post_build:
     commands:
       - echo "Build completed successfully!"
+artifacts:
+  files:
+    - '**/*'
+  name: simple-python-app
+  discard-paths: no
