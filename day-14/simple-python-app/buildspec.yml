@@ -29,5 +29,5 @@ artifacts:
     - '**/*'
   discard-paths: no
   base-directory: ../codepipeline-ap-south-1-576848847468
-  name: ioclcodepipeline
+  name: ioclcodebuild-$AWS_REGION
   discard-paths: no
