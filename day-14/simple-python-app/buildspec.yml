@@ -28,6 +28,6 @@ artifacts:
   files:
     - '**/*'
   discard-paths: no
-  base-directory: ../simple-python-app
+  base-directory: ../codepipeline-ap-south-1-576848847468
   name: ioclcodepipeline
   discard-paths: no
