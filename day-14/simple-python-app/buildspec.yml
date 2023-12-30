@@ -29,5 +29,5 @@ artifacts:
     - '**/*'
   discard-paths: no
   base-directory: ../simple-python-app
-  #name: build-artifact-name
+  name: ioclcodepipeline
   discard-paths: no
