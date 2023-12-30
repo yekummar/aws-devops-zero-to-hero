@@ -27,7 +27,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  discard-paths: no
-  base-directory: ../codepipeline-ap-south-1-576848847468
-  name: simple-python-app-$AWS_REGION
+  name: simple-python-app
   discard-paths: no
