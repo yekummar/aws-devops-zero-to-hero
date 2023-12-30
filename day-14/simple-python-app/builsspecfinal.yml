@@ -2,9 +2,9 @@ version: 0.2
 
 env:
   parameter-store:
-      DOCK_REG_UNAME: /myapp/dockercrid/uname
-      DOCK_REG_PASS: /myapp/dockercrid/passwd
-      DOCK_REG_URL: /myapp/dockercrid/url
+      DOCK_REG_UNAME: /myapp/dockercrid/uname      #AWS Systems Manager -> Parameter Store ->un    All are done same region where pipeline creating.
+      DOCK_REG_PASS: /myapp/dockercrid/passwd      #AWS Systems Manager -> Parameter Store ->pass
+      DOCK_REG_URL: /myapp/dockercrid/url          #AWS Systems Manager -> Parameter Store ->docker.io
 phases:
   install:
     runtime-versions:
