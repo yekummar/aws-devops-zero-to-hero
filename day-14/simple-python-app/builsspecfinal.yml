@@ -28,5 +28,5 @@ phases:
 artifacts:
   files:
     - '**/*'
-  name: simple-python-app        #samename need to give project name, application name in build,deployee and also select in additional info in code build for S3
+  name: simple-python-app        #Buildname,Applicationname,pipelineprojectname,samename  all need to be same need to give project name, application name in build,deployee and also select in additional info in code build for S3
   discard-paths: no
